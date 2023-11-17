@@ -17,7 +17,7 @@ namespace Practica1.Context
         //Escribir la configuracion para entrar a la base de datos.
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL("server = localhost; database = almacen; password = newjeans");
+            optionsBuilder.UseMySQL("server = localhost; database = almacen; user=root;password = Pasword123456");
             optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
         }
 
@@ -25,12 +25,36 @@ namespace Practica1.Context
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Producto>(entity =>
+            modelBuilder.Entity<Producto>(entidad =>
             {
-                entity.HasKey(a => a.NumeroSKU);
-                entity.Property(a => a.Nombre);
-                entity.Property(a => a.Descripcion);
-                entity.Property(a => a.Foto);
+                entidad.HasKey(a => a.NumeroSKU);
+                entidad.Property(a => a.Nombre);
+                entidad.Property(a => a.Descripcion);
+                entidad.Property(a => a.Foto);
+            });
+
+            modelBuilder.Entity<Usuario>(entidad =>
+            {
+                entidad.HasKey(a => a.Id);
+                entidad.Property(a => a.NombreUsuario);
+                entidad.Property(a => a.NombreCompleto);
+                entidad.Property(a => a.Contrasena);
+                entidad.Property(a => a.NivelAcceso);
+            });
+
+            modelBuilder.Entity<Inventario>(entidad =>
+            {
+                entidad.HasKey(a => a.Numero);
+                entidad.Property(a => a.Producto);
+                entidad.Property(a => a.Cantidad);
+                entidad.Property(a => a.Due);
+            });
+
+            modelBuilder.Entity<Almacen>(entidad =>
+            {
+                entidad.HasKey(a => a.numero);
+                entidad.Property(a => a.nombre);
+                entidad.Property(a => a.inventarios);
             });
 
 

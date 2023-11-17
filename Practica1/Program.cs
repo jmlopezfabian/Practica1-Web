@@ -1,4 +1,9 @@
+using Practica1.Context;
+
+
 var builder = WebApplication.CreateBuilder(args);
+
+AlmacenContext contexto = new AlmacenContext();
 
 // Add services to the container.
 
@@ -15,6 +20,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+contexto.Database.EnsureCreated();
 
 app.UseHttpsRedirection();
 
