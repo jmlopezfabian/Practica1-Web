@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Practica1.Model;
 using Practica1.Context;
-using Org.BouncyCastle.Crypto.Modes;
 using Microsoft.EntityFrameworkCore;
 
 namespace Practica1.Controllers
@@ -19,6 +18,7 @@ namespace Practica1.Controllers
                 var aux = contexto.inventarios;
                 foreach(var item in aux)
                 {
+                    
                     inventarios.Add(new Inventario
                     {
                         Numero = item.Numero,
@@ -26,6 +26,7 @@ namespace Practica1.Controllers
                         Cantidad = item.Cantidad,
                         Due = item.Due
                     });
+                    
                 }
             }
             return new JsonResult(inventarios);
@@ -38,6 +39,7 @@ namespace Practica1.Controllers
             using (AlmacenContext contexto = new AlmacenContext())
             {
                 contexto.inventarios.Add(new_inventario);
+
                 contexto.SaveChanges();
                 validacion = true;
             }

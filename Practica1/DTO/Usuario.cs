@@ -7,18 +7,9 @@ namespace Practica1.DTO
         public int Id { get; set; }
         public string NombreUsuario { get; set; }
         public string NombreCompleto { get; set; }
-
         public string Contrasena { get; set; }
-
         public string NivelAcceso { get; set; }
 
-        public Usuario(string new_NombreUsuario, string new_NombreCompleto, string new_Contrasena, string new_NivelAcceso) {  //parametros necesarios para crear a Usuario
-            //Definir el constructur del objeto
-            NombreUsuario = new_NombreUsuario;
-            NombreCompleto = new_NombreCompleto;
-            Contrasena = new_Contrasena;
-            NivelAcceso = new_NivelAcceso;
-        }
     }
 }
 
