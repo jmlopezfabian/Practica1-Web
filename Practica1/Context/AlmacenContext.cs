@@ -56,8 +56,6 @@ namespace Practica1.Context
                 entidad.Property(a => a.nombre);
                 entidad.Property(a => a.inventarios);
             });
-
-
         }
     }
 }

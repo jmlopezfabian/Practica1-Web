@@ -1,0 +1,67 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/AlmacenController",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5167
+        }
+      ],
+      "UpstreamPathTemplate": "/Almacen",
+      "UpstreamHttpMethod": []
+    },
+    {
+      "DownstreamPathTemplate": "/InventarioController",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5167
+        }
+      ],
+      "UpstreamPathTemplate": "/Inventario",
+      "UpstreamHttpMethod": []
+    },
+    {
+      "DownstreamPathTemplate": "/LoginController",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5167
+        }
+      ],
+      "UpstreamPathTemplate": "/Login",
+      "UpstreamHttpMethod": []
+    },
+    {
+      "DownstreamPathTemplate": "/ProductoController",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5167
+        }
+      ],
+      "UpstreamPathTemplate": "/Producto",
+      "UpstreamHttpMethod": []
+    },
+    {
+      "DownstreamPathTemplate": "/UsuarioController",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5167
+        }
+      ],
+      "UpstreamPathTemplate": "/Usuario",
+      "UpstreamHttpMethod": []
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:7163"
+  }
+}

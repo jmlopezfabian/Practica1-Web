@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Practica1.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("InventarioController")]
     public class InventarioController
     {
         [HttpGet]
@@ -58,6 +58,26 @@ namespace Practica1.Controllers
                     contexto.Entry(existe).State = EntityState.Detached;
                     contexto.inventarios.Attach(new_inv);
                     contexto.Entry(new_inv).State = EntityState.Modified;
+                    contexto.SaveChanges();
+                    validacion = true;
+                }
+
+                return new JsonResult(validacion);
+            }
+        }
+
+        [HttpDelete]
+        public JsonResult deleteInventario([FromBody] Inventario new_inv)
+        {
+            bool validacion = false;
+            using (AlmacenContext contexto = new AlmacenContext())
+            {
+                var existe = contexto.inventarios.SingleOrDefault(i => i.Numero == new_inv.Numero);
+                if (existe != null)
+                {
+                    contexto.Entry(existe).State = EntityState.Detached;
+                    contexto.inventarios.Attach(new_inv);
+                    contexto.Entry(new_inv).State = EntityState.Deleted;
                     contexto.SaveChanges();
                     validacion = true;
                 }
